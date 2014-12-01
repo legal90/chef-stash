@@ -1,4 +1,4 @@
-name 'stash'
+name 'p-stash'
 maintainer 'Brian Flad'
 maintainer_email 'bflad417@gmail.com'
 license 'Apache 2.0'

@@ -9,10 +9,10 @@ else
 end
 include_recipe 'perl'
 
-include_recipe 'stash::database' if settings['database']['host'] == 'localhost'
-include_recipe "stash::#{platform}_#{node['stash']['install_type']}"
-include_recipe 'stash::tomcat_configuration'
-include_recipe 'stash::apache2'
-include_recipe 'stash::configuration'
-include_recipe "stash::service_#{node['stash']['service_type']}"
-include_recipe 'stash::backup_client' if node['stash']['backup_client']['version']
+include_recipe 'p-stash::database' if settings['database']['host'] == 'localhost'
+include_recipe "p-stash::#{platform}_#{node['stash']['install_type']}"
+include_recipe 'p-stash::tomcat_configuration'
+include_recipe 'p-stash::apache2'
+include_recipe 'p-stash::configuration'
+include_recipe "p-stash::service_#{node['stash']['service_type']}"
+include_recipe 'p-stash::backup_client' if node['stash']['backup_client']['version']
