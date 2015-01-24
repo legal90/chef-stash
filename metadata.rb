@@ -4,7 +4,7 @@ maintainer_email 'bflad417@gmail.com'
 license 'Apache 2.0'
 description 'Installs/Configures Atlassian Stash'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '3.13.0'
+version '3.14.0'
 recipe 'stash', 'Installs/Configures Atlassian Stash'
 recipe 'stash::apache2', 'Installs/Configures Apache 2 proxy for Stash'
 recipe 'stash::backup_client', 'Installs/Configures Atlassian Stash Backup Client'
@@ -15,10 +15,19 @@ recipe 'stash::linux_standalone', 'Installs/configures Stash via Linux standalon
 recipe 'stash::service_init', 'Installs/configures Stash init service'
 recipe 'stash::tomcat_configuration', "Configures Stash's built-in Tomcat"
 
-%w(amazon centos redhat scientific ubuntu).each do |os|
-  supports os
-end
+supports 'amazon'
+supports 'centos'
+supports 'redhat'
+supports 'scientific'
+supports 'ubuntu'
 
-%w(apache2 ark cron database git java mysql mysql_connector perl postgresql).each do |cb|
-  depends cb
-end
+depends 'apache2'
+depends 'ark'
+depends 'cron'
+depends 'database'
+depends 'git'
+depends 'java'
+depends 'mysql', '~> 5.0'
+depends 'mysql_connector'
+depends 'perl'
+depends 'postgresql'
